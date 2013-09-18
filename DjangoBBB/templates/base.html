@@ -13,11 +13,11 @@
         <meta name="csrf-token" content="{{csrf_token}}">
         {% block meta %}{% endblock %}
         <title>LabTest{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
-        <link rel="shortcut icon" href="{% static "images/favicon.ico" %}">
-        <link rel="apple-touch-icon" href="{% static "images/touch-icon-iphone.png" %}" />
-        <link rel="apple-touch-icon" sizes="72x72" href="{% static "images/apple-touch-icon-72x72-precomposed.png" %}" />
-        <link rel="apple-touch-icon" sizes="114x114" href="{% static "images/apple-touch-icon-114x114-precomposed.png" %}" />
-        <link rel="apple-touch-icon" sizes="144x144" href="{% static "images/apple-touch-icon-144x144-precomposed.png" %}" />
+        <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+        <link rel="apple-touch-icon" href="{% static "img/touch-icon-iphone.png" %}" />
+        <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/apple-touch-icon-72x72-precomposed.png" %}" />
+        <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/apple-touch-icon-114x114-precomposed.png" %}" />
+        <link rel="apple-touch-icon" sizes="144x144" href="{% static "img/apple-touch-icon-144x144-precomposed.png" %}" />
         {% render_block "css" %}
         {% render_block "init-js" %}
         {% block site_css %}{% endblock %}
