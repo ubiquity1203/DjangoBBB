@@ -168,6 +168,15 @@ MIDDLEWARE_CLASSES = (
 # TEMPLATE_CONTEXT_PROCESSORS
 # THUMBNAIL_PROCESSORS
 # Inspect the default values before configuring this setting
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'sekizai.context_processors.sekizai',
+    'django.contrib.messages.context_processors.messages',
+)
 
 
 #############################
@@ -195,6 +204,18 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # RESTFRAMEWORK
+    'rest_framework',
+    # SEKIZAI
+    'sekizai',
+    # MODELTRANSLATION
+    'modeltranslation',
+    # SOUTH
+    'south',
+    # DEBUG TOOLBAR
+    'debug_toolbar',
+    # PROJECT APPS
+
 )
 
 
