@@ -159,6 +159,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # DEBUG TOOLBAR
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 
@@ -170,12 +172,15 @@ MIDDLEWARE_CLASSES = (
 # Inspect the default values before configuring this setting
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-    'sekizai.context_processors.sekizai',
+    'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
+    # SEKIZAI
+    'sekizai.context_processors.sekizai',
 )
 
 
