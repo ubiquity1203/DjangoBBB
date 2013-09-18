@@ -1,9 +1,45 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+{% load sekizai_tags staticfiles %}
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+        <meta name="description" content="{% block meta_description %}{% endblock %}">
+        <meta name="csrf-token" content="{{csrf_token}}">
+        {% block meta %}{% endblock %}
+        <title>LabTest{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+        <link rel="shortcut icon" href="{% static "images/favicon.ico" %}">
+        <link rel="apple-touch-icon" href="{% static "images/touch-icon-iphone.png" %}" />
+        <link rel="apple-touch-icon" sizes="72x72" href="{% static "images/apple-touch-icon-72x72-precomposed.png" %}" />
+        <link rel="apple-touch-icon" sizes="114x114" href="{% static "images/apple-touch-icon-114x114-precomposed.png" %}" />
+        <link rel="apple-touch-icon" sizes="144x144" href="{% static "images/apple-touch-icon-144x144-precomposed.png" %}" />
+        {% render_block "css" %}
+        {% render_block "init-js" %}
+        {% block site_css %}{% endblock %}
+        {% block site_js %}{% endblock %}
+        {% block site_framework %}{% endblock %}
+    </head>
+    <body>
+        {% block site_navigation %}{% endblock %}
+        <div id="wrap" class="snap-content {% if user.is_authenticated %}with-menu{% endif %}">
+            {% block site_breadcrumb %} {% endblock %}
+            {% block messages %} {% endblock %}
+            {% block base_content %}{% endblock %}
+        </div>
 
-</body>
+        {% block footer %}
+        {% endblock %}
+
+        {% block site_modal %}
+        {% endblock %}
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        {% render_block "js" %}
+    </body>
 </html>
