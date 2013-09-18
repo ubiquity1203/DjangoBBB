@@ -1,0 +1,3 @@
+# -*- coding: utf-8 -*-
+AUTO_GENERATE_AVATAR_SIZES = 50
+AVATAR_RESIZE_METHOD = 'Image.ANTIALIAS'
