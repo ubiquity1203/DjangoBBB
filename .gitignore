@@ -5,3 +5,5 @@ local_settings.py
 database.sqlite
 .idea
 .settings
+
+.DS_Store
