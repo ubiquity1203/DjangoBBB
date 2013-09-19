@@ -10,8 +10,13 @@ Tool used to bootstrap this project:
 Main requirements:
 ------------------
 *  fabric ( paramiko pycrypto )
+*  Sphinx ( Pygments Jinja2 docutils markupsafe )
 *  django
 *  django-cms ( django-classy-tags south html5lib django-mptt django-sekizai six )
+*  cmsplugin-blog ( simple-translation djangocms-utils django-tagging django-missing )
+*  cmsplugin-contact
+*  django-mailchimp
+*  django-cms-pagetags ( django-tagging-ng )
 *  django-avatar ( Pillow django-appconf )
 *  easy_thumbnails
 *  django-debug-toolbar
