@@ -202,6 +202,7 @@ WSGI_APPLICATION = 'DjangoBBB.deploy.wsgi.application'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
+SITE_TITLE = 'Django Backbone Boilerplate'
 
 #############################
 #           APPS            #
@@ -221,14 +222,28 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # BOOTSTRAP
+    'bootstrap3',
     # EASY THUMBNAILS
     'easy_thumbnails',
     # RESTFRAMEWORK
     'rest_framework',
+    # REGISTRATION
+    'registration',
+    'registration_defaults',
+    # AVATAR
+    'avatar',
     # DJANGO CMS
     'cms',
     'mptt',
     'menus',
+    'cms.plugins.file',
+    'cms.plugins.text',
+    'cms.plugins.teaser',
+    'cms.plugins.twitter',
+    'cms.plugins.link',
+    'cms.plugins.picture',
+    'cms.plugins.googlemap',
     # SEKIZAI
     'sekizai',
     # MODELTRANSLATION
