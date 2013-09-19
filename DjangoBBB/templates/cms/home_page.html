@@ -1,11 +1,7 @@
 {% extends "cms/cms_page.html" %}
 {% load cms_tags sekizai_tags staticfiles %}
 
-{% block header %}
-    {% include "includes/header.html" %}
-{% endblock %}
-
-{% block site_css %}
+{% block head_css %}
     {% addtoblock "css" %}
         <link href="{% static 'less/home.less' %}" rel="stylesheet/less" type="text/css">
     {% endaddtoblock %}
@@ -25,6 +21,10 @@
         <script type='text/javascript' src='{% static 'js/views/profile/views.js' %}'></script>
         <script type='text/javascript' src='{% static 'js/views/users/views.js' %}'></script>
     {% endaddtoblock %}
+{% endblock %}
+
+{% block header %}
+    {% include "includes/header.html" %}
 {% endblock %}
 
 {% block content %}

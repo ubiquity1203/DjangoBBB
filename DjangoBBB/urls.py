@@ -22,6 +22,12 @@ urlpatterns += i18n_patterns('',
                              url(r'^accounts/', include('registration.backends.default.urls')),
 )
 
+# AVATAR
+urlpatterns += i18n_patterns('',
+                             # Avatar urls
+                             url(r'^avatar/', include('avatar.urls')),
+)
+
 # DJANGO CMS
 urlpatterns += i18n_patterns('',
                              # Include cms urls as last url

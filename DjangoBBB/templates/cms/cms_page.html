@@ -1,5 +1,10 @@
 {% extends "site_base.html" %}
-{% load sekizai_tags staticfiles %}
+{% load cms_tags sekizai_tags staticfiles %}
+
+{% block meta_title %}
+    {% page_attribute "page_title" %}
+{% endblock %}
+
 {% block site_css %}
     {% addtoblock "css" %}
         <link href="{% static 'less/common.less' %}" rel="stylesheet/less" type="text/css">

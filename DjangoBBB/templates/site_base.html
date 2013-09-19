@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
-{% load sekizai_tags staticfiles %}
+{% load sekizai_tags staticfiles bootstrap3 %}
 
 {% block site_framework %}
     {% addtoblock "css" %}
-        <link href="{% static "lib/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css" media="screen">
-        <link href="{% static "lib/bootstrap/css/bootstrap-theme.min.css" %}" rel="stylesheet" type="text/css" media="screen">
+        {% bootstrap_css %}
         <link href="{% static "lib/font-awesome/css/font-awesome.css" %}" rel="stylesheet" type="text/css">
         <link href="{% static "lib/jqueryui/jquery-ui.css" %}" rel="stylesheet" type="text/css">
     {% endaddtoblock %}
@@ -17,11 +16,10 @@
         <script type='text/javascript' src='{% static 'lib/jquery/jquery-1.10.2.min.js' %}'></script>
         <script type='text/javascript' src='{% static 'lib/jqueryui/jquery-ui.min.js' %}'></script>
         <script type='text/javascript' src='{% static 'lib/jquery/plugins.js' %}'></script>
-        <script type='text/javascript' src='{% static 'lib/bootstrap/js/bootstrap.min.js' %}'></script>
-        <script type='text/javascript' src='{% static 'lib/bootstrap/js/holder.js' %}'></script>
         <script type='text/javascript' src='{% static 'lib/json/json2.js' %}'></script>
         <script type='text/javascript' src='{% static 'lib/underscore/underscore-min.js' %}'></script>
         <script type='text/javascript' src='{% static 'lib/backbone/backbone-min.js' %}'></script>
+        {% bootstrap_javascript %}
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <!-- REQUIRE JS INIT-->
