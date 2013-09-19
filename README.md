@@ -11,7 +11,7 @@ Main requirements:
 ------------------
 *  fabric ( paramiko pycrypto )
 *  django
-*  south
+*  django-cms ( django-classy-tags south html5lib django-mptt django-sekizai six )
 *  django-debug-toolbar
 *  django-restframework ( django-filter markdown )
 *  django-tastypie ( python-mimeparse python-dateutil six)
