@@ -26,17 +26,11 @@
     </head>
     <body>
         {% block site_navigation %}{% endblock %}
-        <div id="wrap" class="snap-content {% if user.is_authenticated %}with-menu{% endif %}">
-            {% block site_breadcrumb %} {% endblock %}
-            {% block messages %} {% endblock %}
-            {% block base_content %}{% endblock %}
-        </div>
-
-        {% block footer %}
-        {% endblock %}
-
-        {% block site_modal %}
-        {% endblock %}
+        {% block site_breadcrumb %} {% endblock %}
+        {% block site_messages %} {% endblock %}
+        {% block base_content %}{% endblock %}
+        {% block site_footer %}{% endblock %}
+        {% block site_modal %}{% endblock %}
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->

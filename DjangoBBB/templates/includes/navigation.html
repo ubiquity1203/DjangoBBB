@@ -1,0 +1,71 @@
+{% load menu_tags staticfiles sekizai_tags avatar_tags %}
+{% block site_navigation_static %}
+    {% addtoblock 'css' %}
+        <link href="{% static "lib/slidemenu/css/slidemenu.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "less/menu.less" %}" rel="stylesheet" type="text/less">
+    {% endaddtoblock %}
+    {% addtoblock 'js' %}
+        <script type='text/javascript' src='{% static 'lib/classie/classie.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/slidemenu/js/slidemenu.js' %}'></script>
+    {% endaddtoblock %}
+{% endblock %}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button id="showLeft" type="button" class="navbar-button pull-left">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">LABTEST</a>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="pull-left navbar-avatar"><a href="{% url 'avatar_change' %}">
+                    {% if request.user|has_avatar %}
+                        {% primary_avatar user 50 %}
+                    {% else %}
+                        {% avatar user 50 %}
+                    {% endif %}
+                    </a>
+                </li>
+                <li class="pull-left navbar-profile">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#profile">Profile</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">My items</li>
+                                <li><a href="#purchased-items">Purchased items</a></li>
+                                <li><a href="#favorite-items">Favorite items</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'registration_register' %}">Register</a></li>
+                <li><a href="{% url 'auth_login' %}">Login</a></li>
+            </ul>
+        </div>
+        {% endif %}
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+            <button id="hideLeft" type="button" class="navbar-button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <ul>
+                {% show_menu %}
+            </ul>
+        </nav>
+    </div>
+</div>

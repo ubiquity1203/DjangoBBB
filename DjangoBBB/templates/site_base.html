@@ -1,1 +1,59 @@
 {% extends 'base.html' %}
+{% load sekizai_tags staticfiles %}
+
+{% block site_framework %}
+    {% addtoblock "css" %}
+        <link href="{% static "lib/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css" media="screen">
+        <link href="{% static "lib/bootstrap/css/bootstrap-theme.min.css" %}" rel="stylesheet" type="text/css" media="screen">
+        <link href="{% static "lib/font-awesome/css/font-awesome.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "lib/jqueryui/jquery-ui.css" %}" rel="stylesheet" type="text/css">
+    {% endaddtoblock %}
+    {% addtoblock "init-js" %}
+        {% comment %}<script data-main="scripts/main" src="{% static "lib/require/require.js" %}"></script>{% endcomment %}
+        <script type='text/javascript' src="{% static "lib/modernizr/modernizr-2.6.2-respond-1.1.0.min.js" %}"></script>
+        <script type='text/javascript' src='{% static 'lib/less/less-1.4.1.min.js' %}'></script>
+    {% endaddtoblock %}
+    {% addtoblock "js" %}
+        <script type='text/javascript' src='{% static 'lib/jquery/jquery-1.10.2.min.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/jqueryui/jquery-ui.min.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/jquery/plugins.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/bootstrap/js/bootstrap.min.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/bootstrap/js/holder.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/json/json2.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/underscore/underscore-min.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/backbone/backbone-min.js' %}'></script>
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <!-- REQUIRE JS INIT-->
+        {% comment %}<script type='text/javascript' src='{% static 'js/main.js' %}'></script>{% endcomment %}
+    {% endaddtoblock %}
+{% endblock %}
+
+{% block site_navigation %}
+    {% block site_navigation_static %}{% endblock %}
+    {% include "includes/navigation.html" %}
+{% endblock site_navigation %}
+
+{% block site_breadcrumb %}
+    {% block site_breadcrumb_static %}{% endblock %}
+    {% include "includes/breadcrumb.html" %}
+{% endblock %}
+
+{% block site_messages %}
+    {% block site_messages_static %}{% endblock %}
+    {% include "includes/messages.html" %}
+{% endblock %}
+
+{% block base_content %}
+    {% block header %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}
+{% endblock %}
+
+{% block site_footer %}
+    {% block site_footer_static %}{% endblock %}
+    {% include "includes/footer.html" %}
+{% endblock %}
