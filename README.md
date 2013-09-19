@@ -20,4 +20,4 @@ Main requirements:
 *  django-bootstrap3
 
 
-[![Build Status](https://travis-ci.org/tobia.ghiraldini/DjangoBBB.png)](https://travis-ci.org/tobia.ghiraldini/DjangoBBB)
+[![Build Status](https://travis-ci.org/tobiaghiraldini/DjangoBBB.png)](https://travis-ci.org/tobiaghiraldini/DjangoBBB)
