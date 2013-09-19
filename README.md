@@ -18,3 +18,6 @@ Main requirements:
 *  django-restframework ( django-filter markdown )
 *  django-tastypie ( python-mimeparse python-dateutil six)
 *  django-bootstrap3
+
+
+[![Build Status](https://travis-ci.org/tobia.ghiraldini/DjangoBBB.png)](https://travis-ci.org/tobia.ghiraldini/DjangoBBB)
