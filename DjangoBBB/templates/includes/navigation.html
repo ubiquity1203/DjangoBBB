@@ -8,12 +8,17 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button id="showLeft" type="button" class="navbar-button pull-left">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                {% show_menu %}
+            </ul>
         </div>
         {% if user.is_authenticated %}
         <div class="navbar-collapse">
