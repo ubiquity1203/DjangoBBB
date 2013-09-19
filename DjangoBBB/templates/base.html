@@ -18,10 +18,10 @@
         <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/apple-touch-icon-72x72-precomposed.png" %}" />
         <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/apple-touch-icon-114x114-precomposed.png" %}" />
         <link rel="apple-touch-icon" sizes="144x144" href="{% static "img/apple-touch-icon-144x144-precomposed.png" %}" />
+        {% block head_css %}{% endblock %}
+        {% block head_js %}{% endblock %}
         {% render_block "css" %}
         {% render_block "init-js" %}
-        {% block site_css %}{% endblock %}
-        {% block site_js %}{% endblock %}
         {% block site_framework %}{% endblock %}
     </head>
     <body>
@@ -34,6 +34,8 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
+        {% block site_css %}{% endblock %}
+        {% block site_js %}{% endblock %}
         {% render_block "js" %}
     </body>
 </html>

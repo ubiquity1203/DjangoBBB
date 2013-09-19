@@ -1,0 +1,25 @@
+{% extends "cms/cms_page.html" %}
+{% load cms_tags sekizai_tags staticfiles %}
+
+{% block base_content %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-4">
+                {% placeholder left_column %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                {% placeholder center_column %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                {% placeholder right_column %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -10,6 +10,10 @@ ADMIN_SHORTCUTS = [
                 'url': '/',
                 'open_new_window': True,
             },
+            {
+                'title': gettext('Pages'),
+                'url_name': 'admin:cms_page_changelist',
+            },
         ]
     },
     {

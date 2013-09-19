@@ -5,7 +5,6 @@ from django.conf.urls.i18n import i18n_patterns
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.http.response import HttpResponseNotFound, HttpResponseServerError
-from django.views.generic.base import TemplateView
 
 admin.autodiscover()
 
@@ -17,15 +16,16 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
 )
 
-# AUTH
+# REGISTRATION
 urlpatterns += i18n_patterns('',
                              # Registration urls
                              url(r'^accounts/', include('registration.backends.default.urls')),
 )
 
-# HOME
+# DJANGO CMS
 urlpatterns += i18n_patterns('',
-                             url(r'^$', TemplateView.as_view(template_name='index.html'), name='index')
+                             # Include cms urls as last url
+                             url(r'^', include('cms.urls')),
 )
 
 

@@ -24,9 +24,8 @@ TEMPLATE_DEBUG = DEBUG
 #############################
 #          ADMINS           #
 #############################
-ADMINS = (
-    ('Tobia Ghiraldini', 'tobia.ghiraldini@ninjabit.com'),
-)
+# Configured in local_settings
+ADMINS = ()
 
 MANAGERS = ADMINS
 
@@ -59,7 +58,8 @@ INTERNAL_IPS = ('127.0.0.1',)
 SITE_ID = 1
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'vm!*#sm=$f7u1tll_()(gq%*0a&xe-bou651tz21b2$v)^v-gd'
+# Configured in local_settings
+SECRET_KEY = ''
 
 
 #############################
@@ -158,9 +158,15 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # DEBUG TOOLBAR
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # DJANGO CMS
+    'django.middleware.doc.XViewMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 
@@ -181,6 +187,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     # SEKIZAI
     'sekizai.context_processors.sekizai',
+    # DJANGO CMS
+    'cms.context_processors.media',
 )
 
 
@@ -205,12 +213,22 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # ADMIN SHORTCUTS
+    'admin_shortcuts',
+    # ADMIN STYLE
+    'djangocms_admin_style',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # EASY THUMBNAILS
+    'easy_thumbnails',
     # RESTFRAMEWORK
     'rest_framework',
+    # DJANGO CMS
+    'cms',
+    'mptt',
+    'menus',
     # SEKIZAI
     'sekizai',
     # MODELTRANSLATION
