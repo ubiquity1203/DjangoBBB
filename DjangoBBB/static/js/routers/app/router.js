@@ -11,10 +11,7 @@ App.Routers.Router = Backbone.Router.extend({
         '': 'index',
         'login': 'login',
         'logout': 'logout',
-        'profile': 'profile',
-        'lenses': 'lenses',
-        'lens': 'lens',
-        'comments': 'comments'
+        'profile': 'profile'
     },
 
     initialize: function() {
@@ -25,17 +22,12 @@ App.Routers.Router = Backbone.Router.extend({
     },
 
     index: function() {
-        this.$content.empty();
+        //this.$content.empty();
         App.app.selectMenuItem('home-menu');
     },
 
-    lenses: function() {
-        var lenses = new App.Collections.Lenses();
-        var self = this;
-        lenses.fetch().then(function(data) {
-            self.$content.html(new App.Views.LensView({collection: lenses}).render().el);
-        });
-        App.app.selectMenuItem('lenses-menu');
+    logout: function() {
+
     },
 
     profile: function() {

@@ -62,7 +62,6 @@ $(document).on("ready",function() {
     App.loadTemplates([
         'AppView',
         'LoginView',
-        'LogoutView',
         'AlertView',
         'SearchView',
         'HomeView',

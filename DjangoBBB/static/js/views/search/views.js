@@ -5,3 +5,7 @@
  * Time: 12:39
  * To change this template use File | Settings | File Templates.
  */
+
+App.Views.SearchView = Backbone.View.extend({
+
+});

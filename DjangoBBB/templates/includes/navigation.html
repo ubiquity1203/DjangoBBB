@@ -19,9 +19,7 @@
             <ul class="nav navbar-nav">
                 {% show_menu %}
             </ul>
-        </div>
-        {% if user.is_authenticated %}
-        <div class="navbar-collapse">
+            {% if user.is_authenticated %}
             <ul class="nav navbar-nav navbar-right">
                 <li class="pull-left navbar-avatar"><a href="{% url 'avatar_change' %}">
                     {% if request.user|has_avatar %}
@@ -44,14 +42,12 @@
                     </ul>
                 </li>
             </ul>
-        </div>
-        {% else %}
-        <div class="navbar-collapse">
+            {% else %}
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'registration_register' %}">Register</a></li>
                 <li><a href="{% url 'auth_login' %}">Login</a></li>
             </ul>
+            {% endif %}
         </div>
-        {% endif %}
     </div>
 </div>
