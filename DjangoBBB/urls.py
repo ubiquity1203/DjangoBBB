@@ -16,6 +16,12 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
 )
 
+# API
+urlpatterns += patterns('',
+                        url(r'^api/', include('api.urls')),
+)
+
+
 # REGISTRATION
 urlpatterns += i18n_patterns('',
                              # Registration urls

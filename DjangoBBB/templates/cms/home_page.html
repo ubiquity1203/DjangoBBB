@@ -7,28 +7,16 @@
     {% endaddtoblock %}
 {% endblock %}
 
-{% block site_js %}
-    {% addtoblock "js" %}
-        <script type='text/javascript' src='{% static 'js/App.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/models/session/models.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/models/app/models.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/routers/app/router.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/views/app/views.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/views/alert/views.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/models/profile/models.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/models/users/models.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/collections/users/collections.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/views/profile/views.js' %}'></script>
-        <script type='text/javascript' src='{% static 'js/views/users/views.js' %}'></script>
-    {% endaddtoblock %}
-{% endblock %}
-
 {% block header %}
+{% if not user.is_authenticated %}
     {% include "includes/header.html" %}
+{% endif %}
 {% endblock %}
 
 {% block content %}
-    <div class="container" id="content">
-        <div id="App"></div>
-    </div>
+{% if user.is_authenticated %}
+    {% include "includes/home_template.html" %}
+{% else %}
+    {% include "includes/presentation_template.html" %}
+{% endif %}
 {% endblock %}

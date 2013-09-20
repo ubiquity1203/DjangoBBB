@@ -18,8 +18,6 @@ gettext = lambda s: s
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 PROJECT_NAME = os.getcwd().split(os.sep)[-1]
 
-TEMPLATE_DEBUG = DEBUG
-
 
 #############################
 #          ADMINS           #

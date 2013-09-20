@@ -6,6 +6,7 @@
         {% bootstrap_css %}
         <link href="{% static "lib/font-awesome/css/font-awesome.css" %}" rel="stylesheet" type="text/css">
         <link href="{% static "lib/jqueryui/jquery-ui.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'theme/offcanvas.css' %}" rel="stylesheet/less" type="text/css">
     {% endaddtoblock %}
     {% addtoblock "init-js" %}
         {% comment %}<script data-main="scripts/main" src="{% static "lib/require/require.js" %}"></script>{% endcomment %}
@@ -20,6 +21,7 @@
         <script type='text/javascript' src='{% static 'lib/underscore/underscore-min.js' %}'></script>
         <script type='text/javascript' src='{% static 'lib/backbone/backbone-min.js' %}'></script>
         {% bootstrap_javascript %}
+        <script type='text/javascript' src='{% static 'theme/offcanvas.js' %}'></script>
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <!-- REQUIRE JS INIT-->
@@ -45,8 +47,10 @@
 {% block base_content %}
     {% block header %}
     {% endblock %}
+    <div class="container" id="content">
     {% block content %}
     {% endblock %}
+    </div>
     {% block footer %}
     {% endblock %}
 {% endblock %}
