@@ -9,6 +9,63 @@
 /*
 * Authentication views
 *
+* Register
+*/
+App.Views.SignupView = Backbone.View.extend({
+    id: 'Signup',
+    url: '/api/auth/signup',
+
+    initialize: function() {
+        console.log("Signup view initialized.")
+    },
+
+    events: {
+        "blur #inputUsername": "validateUsername",
+        "blur #inputPasswordConfirm": "validatePassword",
+        "click #signupButton": "signup"
+    },
+
+    validateUsername: function() {
+        event.preventDefault();
+        console.log('Validating username...');
+    },
+
+    validatePassword: function() {
+        event.preventDefault();
+        console.log('Validating password...');
+        if ($('#inputPassword').val() != $('#inputPasswordConfirm').val())
+            $('#passwordMatch').hide();
+        else
+            $('#passwordMatch').show();
+    },
+
+    signup: function() {
+        event.preventDefault();
+        console.log('Signing up...');
+        var url = self.url;
+        console.log('signup url: ' + url);
+        var formValues = {
+            userName: $('#inputUsername').val(),
+            firstName: $('#inputUsername').val(),
+            lastName: $('#inputUsername').val(),
+            password: $('#inputPassword').val(),
+            passwordConfirm: $('#inputPasswordConfirm').val()
+        }
+        // TODO: post signup values
+        // accept and validate response
+    },
+
+    render: function() {
+        this.$el.html(this.template());
+        return this;
+    }
+});
+
+
+
+/*
+* Authentication views
+*
 * Login
 */
 App.Views.LoginView = Backbone.View.extend({

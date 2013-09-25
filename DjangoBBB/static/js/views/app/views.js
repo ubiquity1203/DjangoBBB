@@ -10,7 +10,6 @@
 * Global app view
 */
 App.Views.AppView = Backbone.View.extend({
-    id: 'App',
 
     initialize: function() {
     },

@@ -43,24 +43,11 @@ var App = {
     }
 };
 
-//$(document).on("ready",function() {
-//
-//    App.loadTemplates([
-//        'AppView',
-//        'AlertView',
-//        'UserView',
-//        'UsersView',
-//        'ProfileView'
-//    ], function() {
-//        App.router = new App.Router();
-//        Backbone.history.start();
-//    });
-//});
-
 $(document).on("ready",function() {
     var Application = new App.Models.Application();
     App.loadTemplates([
         'AppView',
+        'SignupView',
         'LoginView',
         'AlertView',
         'SearchView',

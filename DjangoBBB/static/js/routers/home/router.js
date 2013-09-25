@@ -9,7 +9,6 @@
 App.Routers.Router = Backbone.Router.extend({
     routes: {
         '': 'index',
-        'register': 'register',
         'login': 'login',
         'logout': 'logout',
         'profile': 'profile'
@@ -25,16 +24,10 @@ App.Routers.Router = Backbone.Router.extend({
     index: function() {
         var self = this;
         //this.$content.empty();
+        console.log(self.$content);
         App.homeView = new App.Views.HomeView();
         self.$content.html(App.homeView.render().el);
         App.app.selectMenuItem('home-menu');
-    },
-
-    register: function() {
-        var self = this;
-        App.registerView = new App.Views.SignupView();
-        self.$content.html(App.registerView.render().el);
-        App.app.selectMenuItem('register-menu');
     },
 
     logout: function() {
