@@ -2,6 +2,27 @@
 
 {% block additional_js %}
     {% addtoblock "js" %}
+        <script type='text/javascript' src='{% static 'lib/json/json2.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/underscore/underscore-min.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/backbone/backbone-min.js' %}'></script>
+        <script type='text/javascript' src='{% static 'lib/bootstrap/js/holder.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/app.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/models/session/models.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/models/app/models.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/routers/app/router.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/views/app/views.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/views/auth/views.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/views/alert/views.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/views/search/views.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/models/profile/models.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/views/profile/views.js' %}'></script>
+        <!-- REQUIRE JS INIT-->
+        {% comment %}<script type='text/javascript' src='{% static 'js/main.js' %}'></script>{% endcomment %}
         <script type='text/javascript' src='{% static 'js/views/home/views.js' %}'></script>
+    {% endaddtoblock %}
+{% endblock %}
+{% block additional_css %}
+    {% addtoblock "css" %}
+        <link href="{% static 'less/home.less' %}" rel="stylesheet/less" type="text/css">
     {% endaddtoblock %}
 {% endblock %}
