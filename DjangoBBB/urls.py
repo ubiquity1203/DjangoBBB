@@ -14,31 +14,36 @@ urlpatterns = patterns('',
                        url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
                        # Uncomment the next line to enable the admin:
                        url(r'^admin/', include(admin.site.urls)),
-)
+                       )
 
 # API
-urlpatterns += patterns('',
-                        url(r'^api/', include('api.urls')),
-)
+urlpatterns += i18n_patterns('',
+                             url(r'^api/', include('api.urls')),
+                             )
 
 
 # REGISTRATION
 urlpatterns += i18n_patterns('',
                              # Registration urls
                              url(r'^accounts/', include('registration.backends.default.urls')),
-)
+                             )
+
+# PROFILE
+urlpatterns += i18n_patterns('',
+                             url(r'profile/', include('profiles.urls')),
+                             )
 
 # AVATAR
 urlpatterns += i18n_patterns('',
                              # Avatar urls
                              url(r'^avatar/', include('avatar.urls')),
-)
+                             )
 
 # DJANGO CMS
 urlpatterns += i18n_patterns('',
                              # Include cms urls as last url
                              url(r'^', include('cms.urls')),
-)
+                             )
 
 
 #########################################
