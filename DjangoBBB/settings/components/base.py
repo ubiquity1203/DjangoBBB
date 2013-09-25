@@ -34,7 +34,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_PATH, 'database.sqlite'), # Or path to database file if using sqlite3.
+        'NAME': os.path.join(PROJECT_PATH, '../../database.sqlite'), # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -93,27 +93,27 @@ LOCALE_PATHS = (
 #############################
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_PATH, "media")
+MEDIA_ROOT = os.path.join(PROJECT_PATH, "../../media")
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_PATH, "static_root")
+STATIC_ROOT = os.path.join(PROJECT_PATH, "../../static_root")
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_PATH, "static"),
+    os.path.join(PROJECT_PATH, "../../static"),
 )
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_PATH, "templates"),
+    os.path.join(PROJECT_PATH, "../../templates"),
 )
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -150,17 +150,17 @@ TEMPLATE_LOADERS = (
 #############################
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.doc.XViewMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # DEBUG TOOLBAR
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     # DJANGO CMS
-    'django.middleware.doc.XViewMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
@@ -183,24 +183,26 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
-    # SEKIZAI
-    'sekizai.context_processors.sekizai',
     # DJANGO CMS
     'cms.context_processors.media',
+    # SEKIZAI
+    'sekizai.context_processors.sekizai',
+    # UTILITIES
+    'utilities.context_processors.title',
 )
 
 
 #############################
 #         PROJECT           #
 #############################
-ROOT_URLCONF = 'DjangoBBB.urls'
+ROOT_URLCONF = PROJECT_NAME+'.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'DjangoBBB.deploy.wsgi.application'
+WSGI_APPLICATION = PROJECT_NAME+'.deploy.wsgi.application'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
-SITE_TITLE = 'Django Backbone Boilerplate'
+SITE_TITLE = PROJECT_NAME
 
 #############################
 #           APPS            #
@@ -253,7 +255,9 @@ INSTALLED_APPS = (
     # DEBUG TOOLBAR
     'debug_toolbar',
     # PROJECT APPS
-
+    'profiles',
+    'api',
+    'utilities',
 )
 
 
@@ -263,7 +267,7 @@ INSTALLED_APPS = (
 # To keep settings minimal and usable
 # other settings file are placed into conf/ path as .conf files
 # Loading other settings
-settingsfiles = glob.glob(os.path.join(os.path.dirname(__file__), 'conf', '*.conf.py'))
+settingsfiles = glob.glob(os.path.join(os.path.dirname(__file__), '../../conf', '*.conf.py'))
 settingsfiles.sort()
 for f in settingsfiles:
     try:
@@ -273,17 +277,17 @@ for f in settingsfiles:
 
 # Loading local settings
 try:
-    from local_settings import *
+    from DjangoBBB.settings.local_settings import *
 except ImportError:
     pass
 # Loading test/prod settings based on ENV settings
 if ENV == 'test':
     try:
-        from test_settings import *
+        from DjangoBBB.settings.test_settings import *
     except ImportError:
         pass
 elif ENV == 'prod':
     try:
-        from prod_settings import *
+        from DjangoBBB.settings.prod_settings import *
     except ImportError:
         pass

@@ -7,3 +7,4 @@ database.sqlite
 .settings
 
 .DS_Store
+/DjangoBBB/media/

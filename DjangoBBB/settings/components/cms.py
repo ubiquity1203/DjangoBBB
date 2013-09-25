@@ -1,6 +1,6 @@
 CMS_TEMPLATES = (
-    ('cms/home_page.html', 'Home page'),
-    ('cms/internal_page.html', 'Internal page'),
+    ('home_page.html', 'Home page'),
+    ('internal_page.html', 'Internal page'),
 )
 
 gettext = lambda s: s
