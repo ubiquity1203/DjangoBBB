@@ -1,0 +1,4 @@
+{% load menu_tags %}
+{% for child in children %}
+<a class="navbar-brand {% if child.selected %}selected{% endif %}" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+{% endfor %}

@@ -1,0 +1,20 @@
+{% extends "cms_page.html" %}
+{% load cms_tags sekizai_tags staticfiles %}
+
+{% block header %}
+    {% if user.is_authenticated %}
+        {% include "includes/header.html" %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% addtoblock "css" %}
+        <link href="{% static 'less/home.less' %}" rel="stylesheet/less" type="text/css">
+    {% endaddtoblock %}
+    {% placeholder home_base_content %}
+    {% if user.is_authenticated %}
+        {% include "includes/home_template.html" %}
+    {% else %}
+        {% include "includes/presentation_template.html" %}
+    {% endif %}
+{% endblock %}

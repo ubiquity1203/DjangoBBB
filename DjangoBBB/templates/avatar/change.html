@@ -1,0 +1,45 @@
+{% extends "avatar/base.html" %}
+{% load i18n sekizai_tags avatar_tags staticfiles %}
+{% load url from future %}
+
+{% block content %}
+    {% addtoblock "css" %}
+        <link href="{% static 'lib/dropzone/css/dropzone.css' %}" rel="stylesheet/less" type="text/css">
+    {% endaddtoblock %}
+    {% addtoblock "js" %}
+        <script type='text/javascript' src='{% static 'lib/dropzone/dropzone.js' %}'></script>
+        <script>
+
+        Dropzone.options.avatarDropzone = {
+            paramName: "avatar", // The name that will be used to transfer the file
+            maxFilesize: 2, // MB
+            maxFiles: 1,
+            init: function() {
+                this.on("success", function(file) { setTimeout(function(){location.reload();}, 1000); });
+                this.on("error", function(file) { alert("Error adding file."); });
+                this.on("maxfilesexceeded", function(file) { alert("Limit of avatars exceeded."); });
+            }
+        };
+
+        // TODO: Register to dropzone emitters
+        </script>
+    {% endaddtoblock %}
+
+    <p>{% trans "Your current avatar: " %}</p>
+    {% avatar user %}
+    {% if not avatars %}
+        <p>{% trans "You haven't uploaded an avatar yet. Please upload one now." %}</p>
+    {% else %}
+        <form method="POST" action="{% url 'avatar_change' %}">
+            <ul>
+                {{ primary_avatar_form.as_ul }}
+            </ul>
+            <p>{% csrf_token %}<input type="submit" value="{% trans "Choose new Default" %}" /></p>
+        </form>
+    {% endif %}
+    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}" class="dropzone" id="avatar-dropzone">
+        {% csrf_token %}
+        {% comment %}{{ upload_avatar_form.as_p }}{% endcomment %}
+        {% comment %}<p><input type="submit" value="{% trans "Upload New Image" %}" /></p>{% endcomment %}
+    </form>
+{% endblock %}
