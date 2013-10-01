@@ -159,8 +159,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # DEBUG TOOLBAR
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     # DJANGO CMS
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
